@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net" version="24.8.0">
+  <diagram name="C4 Context — умный доступ" id="pd-C4-Context-—-умный-доступ">
+    <mxGraphModel dx="1800" dy="1200" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1850" pageHeight="1050">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="system-boundary" value="&lt;b&gt;PropDevelopment&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=12;fontSize=19;dashed=1;fillColor=#f8fafc;strokeColor=#94a3b8;fontColor=#102a43;" vertex="1" parent="1">
+          <mxGeometry x="380" y="180" width="750" height="650" as="geometry" />
+        </mxCell>
+        <mxCell id="owner" value="&lt;b&gt;Собственник / жилец&lt;/b&gt;&lt;br&gt;[Person]&lt;br&gt;Управляет доступом, открывает дверь и шлагбаум" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=10;fontSize=15;fillColor=#08427b;strokeColor=#052e56;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="35" y="275" width="280" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="manager" value="&lt;b&gt;УК / уполномоченный менеджер&lt;/b&gt;&lt;br&gt;[Person]&lt;br&gt;Подтверждает права на объект и разбирает инциденты" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=10;fontSize=15;fillColor=#08427b;strokeColor=#052e56;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="35" y="590" width="280" height="145" as="geometry" />
+        </mxCell>
+        <mxCell id="pd" value="&lt;b&gt;Система сервисов собственника&lt;/b&gt;&lt;br&gt;[Software System]&lt;br&gt;Мобильное приложение + tenant-core-app + контур интеграции умного доступа" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;spacing=15;fontSize=20;fillColor=#1168bd;strokeColor=#0b4f91;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="500" y="365" width="520" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="partner" value="&lt;b&gt;Платформа партнёра «Умный доступ"&lt;/b&gt;&lt;br&gt;[External Software System]&lt;br&gt;Биометрическое распознавание и распознавание номеров; исполнение разрешений" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=10;fontSize=15;fillColor=#99909b;strokeColor=#6d6470;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="1260" y="340" width="470" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="devices" value="&lt;b&gt;Домофон и шлагбаум&lt;/b&gt;&lt;br&gt;[External System]&lt;br&gt;Камеры, замки и контроллеры партнёра" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=10;fontSize=15;fillColor=#99909b;strokeColor=#6d6470;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="1270" y="720" width="450" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-1" value="HTTPS: согласие, разрешения, команды" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#64748b;fontSize=13;" edge="1" parent="1" source="owner" target="pd">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-2" value="Проверка прав и отзыв доступа" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#64748b;fontSize=13;" edge="1" parent="1" source="manager" target="pd">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-3" value="mTLS + OAuth 2.0: одноразовая сессия, разрешения, команды, отзыв" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#64748b;fontSize=13;" edge="1" parent="1" source="pd" target="partner">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-4" value="HTTPS: статус, события, opaque ID" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#64748b;fontSize=13;" edge="1" parent="1" source="partner" target="pd">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-5" value="Защищённый канал управления" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#64748b;fontSize=13;" edge="1" parent="1" source="partner" target="devices">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-note" value="Граница данных: биометрические шаблоны, исходное видео и полный номер автомобиля — у партнёра; PropDevelopment хранит согласие, право доступа, opaque ID и журнал. Контроллер отключает автоматический допуск за ≤60 с после отзыва или потери связи." style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=14;fontSize=17;fillColor=#eff6ff;strokeColor=#475569;fontColor=#102a43;" vertex="1" parent="1">
+          <mxGeometry x="365" y="880" width="1390" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-6" value="TLS: ввод лица/номера по одноразовой сессии" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#0f766e;fontSize=13;dashed=1;exitX=1;exitY=0;entryX=0;entryY=0;" edge="1" parent="1" source="owner" target="partner">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="340" y="240" />
+              <mxPoint x="1200" y="240" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
