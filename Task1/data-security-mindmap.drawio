@@ -1,0 +1,305 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net" version="24.8.0">
+  <diagram name="Безопасность данных" id="pd-Безопасность-данных">
+    <mxGraphModel dx="1800" dy="1200" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2500" pageHeight="2600">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="&lt;b&gt;Безопасность данных&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontSize=24;fillColor=#cbd5e1;strokeColor=#475569;fontColor=#102a43;" vertex="1" parent="1">
+          <mxGeometry x="20" y="1110" width="260" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="note" value="Классы: локальная реализация ISO/IEC 27001:2022 A.5.12 и ISO/IEC 27002:2022 5.12–5.13. Для каждого события: качественная вероятность × ущерб → итоговый риск по матрице из README. Логи и резервные копии наследуют максимальный класс содержащихся данных." style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=10;fontSize=16;fillColor=#f8fafc;strokeColor=#475569;fontColor=#102a43;" vertex="1" parent="1">
+          <mxGeometry x="20" y="35" width="940" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="category-0" value="&lt;b&gt;Публичные&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontSize=21;fillColor=#dbeafe;strokeColor=#475569;fontColor=#102a43;" vertex="1" parent="1">
+          <mxGeometry x="330" y="370" width="250" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="root-0" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#64748b;fontSize=13;" edge="1" parent="1" source="title" target="category-0">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="data-0" value="&lt;b&gt;Данные&lt;/b&gt;&lt;br&gt;Каталог квартир, цены и планировки; опубликованные условия бронирования; открытые сообщения о работах без адресной привязки." style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=10;fontSize=13;fillColor=#dbeafe;strokeColor=#475569;fontColor=#102a43;" vertex="1" parent="1">
+          <mxGeometry x="650" y="265" width="380" height="275" as="geometry" />
+        </mxCell>
+        <mxCell id="category-data-0" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#64748b;fontSize=13;" edge="1" parent="1" source="category-0" target="data-0">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="risk-0-0" value="&lt;b&gt;Утечка&lt;/b&gt;&lt;br&gt;P: Низкая; ущерб: Низкий&lt;br&gt;&lt;b&gt;Риск: Незначительный&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=10;fontSize=13;fillColor=#e0f2fe;strokeColor=#475569;fontColor=#102a43;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="160" width="300" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="reason-0-0" value="Вероятность «низкая» × ущерб «низкий» → незначительный. Сведения уже официально опубликованы; повторное раскрытие почти не меняет ущерб для компании." style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=10;fontSize=15;fillColor=#f8fafc;strokeColor=#475569;fontColor=#102a43;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="160" width="750" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="data-risk-0-0" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#64748b;fontSize=13;" edge="1" parent="1" source="data-0" target="risk-0-0">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="risk-reason-0-0" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#64748b;fontSize=13;" edge="1" parent="1" source="risk-0-0" target="reason-0-0">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="risk-0-1" value="&lt;b&gt;Потеря&lt;/b&gt;&lt;br&gt;P: Средняя; ущерб: Средний&lt;br&gt;&lt;b&gt;Риск: Значительный&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=10;fontSize=13;fillColor=#fef3c7;strokeColor=#475569;fontColor=#102a43;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="265" width="300" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="reason-0-1" value="Вероятность «средняя» × ущерб «средний» → значительный. Недоступный каталог прерывает поиск и бронирование, снижает продажи и доверие." style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=10;fontSize=15;fillColor=#f8fafc;strokeColor=#475569;fontColor=#102a43;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="265" width="750" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="data-risk-0-1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#64748b;fontSize=13;" edge="1" parent="1" source="data-0" target="risk-0-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="risk-reason-0-1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#64748b;fontSize=13;" edge="1" parent="1" source="risk-0-1" target="reason-0-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="risk-0-2" value="&lt;b&gt;Искажение&lt;/b&gt;&lt;br&gt;P: Средняя; ущерб: Средний&lt;br&gt;&lt;b&gt;Риск: Значительный&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=10;fontSize=13;fillColor=#fef3c7;strokeColor=#475569;fontColor=#102a43;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="370" width="300" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="reason-0-2" value="Вероятность «средняя» × ущерб «средний» → значительный. Ошибочная цена или планировка вводит покупателя в заблуждение и создаёт споры по сделке." style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=10;fontSize=15;fillColor=#f8fafc;strokeColor=#475569;fontColor=#102a43;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="370" width="750" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="data-risk-0-2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#64748b;fontSize=13;" edge="1" parent="1" source="data-0" target="risk-0-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="risk-reason-0-2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#64748b;fontSize=13;" edge="1" parent="1" source="risk-0-2" target="reason-0-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="risk-0-3" value="&lt;b&gt;Некачественные данные&lt;/b&gt;&lt;br&gt;P: Высокая; ущерб: Низкий&lt;br&gt;&lt;b&gt;Риск: Значительный&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=10;fontSize=13;fillColor=#fef3c7;strokeColor=#475569;fontColor=#102a43;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="475" width="300" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="reason-0-3" value="Вероятность «высокая» × ущерб «низкий» → значительный. Неполные карточки объектов увеличивают ошибки выбора и нагрузку на менеджеров." style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=10;fontSize=15;fillColor=#f8fafc;strokeColor=#475569;fontColor=#102a43;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="475" width="750" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="data-risk-0-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#64748b;fontSize=13;" edge="1" parent="1" source="data-0" target="risk-0-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="risk-reason-0-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#64748b;fontSize=13;" edge="1" parent="1" source="risk-0-3" target="reason-0-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="risk-0-4" value="&lt;b&gt;Обесценивание&lt;/b&gt;&lt;br&gt;P: Высокая; ущерб: Низкий&lt;br&gt;&lt;b&gt;Риск: Значительный&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=10;fontSize=13;fillColor=#fef3c7;strokeColor=#475569;fontColor=#102a43;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="580" width="300" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="reason-0-4" value="Вероятность «высокая» × ущерб «низкий» → значительный. Устаревшие цены и статусы доступности делают витрину бесполезной для покупки." style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=10;fontSize=15;fillColor=#f8fafc;strokeColor=#475569;fontColor=#102a43;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="580" width="750" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="data-risk-0-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#64748b;fontSize=13;" edge="1" parent="1" source="data-0" target="risk-0-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="risk-reason-0-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#64748b;fontSize=13;" edge="1" parent="1" source="risk-0-4" target="reason-0-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="category-1" value="&lt;b&gt;Внутренние&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontSize=21;fillColor=#dcfce7;strokeColor=#475569;fontColor=#102a43;" vertex="1" parent="1">
+          <mxGeometry x="330" y="970" width="250" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="root-1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#64748b;fontSize=13;" edge="1" parent="1" source="title" target="category-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="data-1" value="&lt;b&gt;Данные&lt;/b&gt;&lt;br&gt;Регламенты команд; схемы интеграций без секретов; планы и история ремонтов без связи с человеком; агрегированные обезличенные отчёты; технические логи без ПДн и секретов." style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=10;fontSize=13;fillColor=#dcfce7;strokeColor=#475569;fontColor=#102a43;" vertex="1" parent="1">
+          <mxGeometry x="650" y="865" width="380" height="275" as="geometry" />
+        </mxCell>
+        <mxCell id="category-data-1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#64748b;fontSize=13;" edge="1" parent="1" source="category-1" target="data-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="risk-1-0" value="&lt;b&gt;Утечка&lt;/b&gt;&lt;br&gt;P: Низкая; ущерб: Высокий&lt;br&gt;&lt;b&gt;Риск: Значительный&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=10;fontSize=13;fillColor=#fef3c7;strokeColor=#475569;fontColor=#102a43;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="760" width="300" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="reason-1-0" value="Вероятность «низкая» × ущерб «высокий» → значительный. Схемы и внутренние процессы раскрывают устройство системы и помогают атакующему выбрать цель." style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=10;fontSize=15;fillColor=#f8fafc;strokeColor=#475569;fontColor=#102a43;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="760" width="750" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="data-risk-1-0" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#64748b;fontSize=13;" edge="1" parent="1" source="data-1" target="risk-1-0">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="risk-reason-1-0" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#64748b;fontSize=13;" edge="1" parent="1" source="risk-1-0" target="reason-1-0">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="risk-1-1" value="&lt;b&gt;Потеря&lt;/b&gt;&lt;br&gt;P: Средняя; ущерб: Средний&lt;br&gt;&lt;b&gt;Риск: Значительный&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=10;fontSize=13;fillColor=#fef3c7;strokeColor=#475569;fontColor=#102a43;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="865" width="300" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="reason-1-1" value="Вероятность «средняя» × ущерб «средний» → значительный. Без истории ремонтов и регламентов осложняется обслуживание домов и аудит работ." style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=10;fontSize=15;fillColor=#f8fafc;strokeColor=#475569;fontColor=#102a43;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="865" width="750" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="data-risk-1-1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#64748b;fontSize=13;" edge="1" parent="1" source="data-1" target="risk-1-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="risk-reason-1-1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#64748b;fontSize=13;" edge="1" parent="1" source="risk-1-1" target="reason-1-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="risk-1-2" value="&lt;b&gt;Искажение&lt;/b&gt;&lt;br&gt;P: Средняя; ущерб: Средний&lt;br&gt;&lt;b&gt;Риск: Значительный&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=10;fontSize=13;fillColor=#fef3c7;strokeColor=#475569;fontColor=#102a43;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="970" width="300" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="reason-1-2" value="Вероятность «средняя» × ущерб «средний» → значительный. Неверный план ремонта ведёт к ошибочным действиям управляющей компании." style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=10;fontSize=15;fillColor=#f8fafc;strokeColor=#475569;fontColor=#102a43;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="970" width="750" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="data-risk-1-2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#64748b;fontSize=13;" edge="1" parent="1" source="data-1" target="risk-1-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="risk-reason-1-2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#64748b;fontSize=13;" edge="1" parent="1" source="risk-1-2" target="reason-1-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="risk-1-3" value="&lt;b&gt;Некачественные данные&lt;/b&gt;&lt;br&gt;P: Высокая; ущерб: Низкий&lt;br&gt;&lt;b&gt;Риск: Значительный&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=10;fontSize=13;fillColor=#fef3c7;strokeColor=#475569;fontColor=#102a43;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="1075" width="300" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="reason-1-3" value="Вероятность «высокая» × ущерб «низкий» → значительный. Неполные статусы работ и неунифицированные данные портят операционные отчёты." style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=10;fontSize=15;fillColor=#f8fafc;strokeColor=#475569;fontColor=#102a43;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="1075" width="750" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="data-risk-1-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#64748b;fontSize=13;" edge="1" parent="1" source="data-1" target="risk-1-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="risk-reason-1-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#64748b;fontSize=13;" edge="1" parent="1" source="risk-1-3" target="reason-1-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="risk-1-4" value="&lt;b&gt;Обесценивание&lt;/b&gt;&lt;br&gt;P: Высокая; ущерб: Низкий&lt;br&gt;&lt;b&gt;Риск: Значительный&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=10;fontSize=13;fillColor=#fef3c7;strokeColor=#475569;fontColor=#102a43;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="1180" width="300" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="reason-1-4" value="Вероятность «высокая» × ущерб «низкий» → значительный. Устаревшие схемы и регламенты мешают изменениям и реагированию на инциденты." style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=10;fontSize=15;fillColor=#f8fafc;strokeColor=#475569;fontColor=#102a43;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="1180" width="750" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="data-risk-1-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#64748b;fontSize=13;" edge="1" parent="1" source="data-1" target="risk-1-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="risk-reason-1-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#64748b;fontSize=13;" edge="1" parent="1" source="risk-1-4" target="reason-1-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="category-2" value="&lt;b&gt;Конфиденциальные&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontSize=21;fillColor=#fef3c7;strokeColor=#475569;fontColor=#102a43;" vertex="1" parent="1">
+          <mxGeometry x="330" y="1570" width="250" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="root-2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#64748b;fontSize=13;" edge="1" parent="1" source="title" target="category-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="data-2" value="&lt;b&gt;Данные&lt;/b&gt;&lt;br&gt;ФИО, телефон, email, адрес и профиль; бронирования; результаты осмотров и онлайн-туров; расширенная анкета; документы онлайн-сделки и СМЭВ; договоры и платежи; бухгалтерские регистры и финансовая отчётность; данные жильцов; журналы действий с идентификаторами; сырые данные DWH." style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=10;fontSize=13;fillColor=#fef3c7;strokeColor=#475569;fontColor=#102a43;" vertex="1" parent="1">
+          <mxGeometry x="650" y="1465" width="380" height="275" as="geometry" />
+        </mxCell>
+        <mxCell id="category-data-2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#64748b;fontSize=13;" edge="1" parent="1" source="category-2" target="data-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="risk-2-0" value="&lt;b&gt;Утечка&lt;/b&gt;&lt;br&gt;P: Высокая; ущерб: Высокий&lt;br&gt;&lt;b&gt;Риск: Критический&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=10;fontSize=13;fillColor=#fecaca;strokeColor=#475569;fontColor=#102a43;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="1360" width="300" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="reason-2-0" value="Вероятность «высокая» × ущерб «высокий» → критический. Уже наблюдается показ чужого ФИО; раскрытие профилей, адресов и сделок затрагивает людей и законность обработки." style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=10;fontSize=15;fillColor=#f8fafc;strokeColor=#475569;fontColor=#102a43;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="1360" width="750" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="data-risk-2-0" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#64748b;fontSize=13;" edge="1" parent="1" source="data-2" target="risk-2-0">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="risk-reason-2-0" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#64748b;fontSize=13;" edge="1" parent="1" source="risk-2-0" target="reason-2-0">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="risk-2-1" value="&lt;b&gt;Потеря&lt;/b&gt;&lt;br&gt;P: Средняя; ущерб: Высокий&lt;br&gt;&lt;b&gt;Риск: Критический&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=10;fontSize=13;fillColor=#fecaca;strokeColor=#475569;fontColor=#102a43;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="1465" width="300" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="reason-2-1" value="Вероятность «средняя» × ущерб «высокий» → критический. Потеря карточек, сделок или платежей нарушит обслуживание и доказуемость обязательств." style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=10;fontSize=15;fillColor=#f8fafc;strokeColor=#475569;fontColor=#102a43;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="1465" width="750" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="data-risk-2-1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#64748b;fontSize=13;" edge="1" parent="1" source="data-2" target="risk-2-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="risk-reason-2-1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#64748b;fontSize=13;" edge="1" parent="1" source="risk-2-1" target="reason-2-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="risk-2-2" value="&lt;b&gt;Искажение&lt;/b&gt;&lt;br&gt;P: Средняя; ущерб: Высокий&lt;br&gt;&lt;b&gt;Риск: Критический&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=10;fontSize=13;fillColor=#fecaca;strokeColor=#475569;fontColor=#102a43;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="1570" width="300" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="reason-2-2" value="Вероятность «средняя» × ущерб «высокий» → критический. Чужой профиль или изменённый платёж может привести к неверной сделке и ущербу клиенту." style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=10;fontSize=15;fillColor=#f8fafc;strokeColor=#475569;fontColor=#102a43;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="1570" width="750" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="data-risk-2-2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#64748b;fontSize=13;" edge="1" parent="1" source="data-2" target="risk-2-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="risk-reason-2-2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#64748b;fontSize=13;" edge="1" parent="1" source="risk-2-2" target="reason-2-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="risk-2-3" value="&lt;b&gt;Некачественные данные&lt;/b&gt;&lt;br&gt;P: Высокая; ущерб: Высокий&lt;br&gt;&lt;b&gt;Риск: Критический&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=10;fontSize=13;fillColor=#fecaca;strokeColor=#475569;fontColor=#102a43;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="1675" width="300" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="reason-2-3" value="Вероятность «высокая» × ущерб «высокий» → критический. Несогласованные точки регистрации дают дубли и смешение профилей, что уже проявилось в приложении." style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=10;fontSize=15;fillColor=#f8fafc;strokeColor=#475569;fontColor=#102a43;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="1675" width="750" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="data-risk-2-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#64748b;fontSize=13;" edge="1" parent="1" source="data-2" target="risk-2-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="risk-reason-2-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#64748b;fontSize=13;" edge="1" parent="1" source="risk-2-3" target="reason-2-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="risk-2-4" value="&lt;b&gt;Обесценивание&lt;/b&gt;&lt;br&gt;P: Средняя; ущерб: Средний&lt;br&gt;&lt;b&gt;Риск: Значительный&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=10;fontSize=13;fillColor=#fef3c7;strokeColor=#475569;fontColor=#102a43;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="1780" width="300" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="reason-2-4" value="Вероятность «средняя» × ущерб «средний» → значительный. Сырые данные без владельца, происхождения и правил хранения не пригодны для безопасных BI/ML-сервисов." style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=10;fontSize=15;fillColor=#f8fafc;strokeColor=#475569;fontColor=#102a43;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="1780" width="750" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="data-risk-2-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#64748b;fontSize=13;" edge="1" parent="1" source="data-2" target="risk-2-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="risk-reason-2-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#64748b;fontSize=13;" edge="1" parent="1" source="risk-2-4" target="reason-2-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="category-3" value="&lt;b&gt;Секретные&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontSize=21;fillColor=#fee2e2;strokeColor=#475569;fontColor=#102a43;" vertex="1" parent="1">
+          <mxGeometry x="330" y="2170" width="250" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="root-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#64748b;fontSize=13;" edge="1" parent="1" source="title" target="category-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="data-3" value="&lt;b&gt;Данные&lt;/b&gt;&lt;br&gt;Пароли и их хеши; MFA-данные; ключи, сертификаты, DB credentials и API-токены; биометрические шаблоны у партнёра; полные номера и списки физического доступа; команды открытия. Логи и резервные копии наследуют максимальный класс содержащихся данных." style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=10;fontSize=13;fillColor=#fee2e2;strokeColor=#475569;fontColor=#102a43;" vertex="1" parent="1">
+          <mxGeometry x="650" y="2065" width="380" height="275" as="geometry" />
+        </mxCell>
+        <mxCell id="category-data-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#64748b;fontSize=13;" edge="1" parent="1" source="category-3" target="data-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="risk-3-0" value="&lt;b&gt;Утечка&lt;/b&gt;&lt;br&gt;P: Средняя; ущерб: Высокий&lt;br&gt;&lt;b&gt;Риск: Критический&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=10;fontSize=13;fillColor=#fecaca;strokeColor=#475569;fontColor=#102a43;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="1960" width="300" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="reason-3-0" value="Вероятность «средняя» × ущерб «высокий» → критический. Компрометация ключей или биометрии позволяет доступ к системам и физическим объектам; биометрию нельзя заменить как пароль." style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=10;fontSize=15;fillColor=#f8fafc;strokeColor=#475569;fontColor=#102a43;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="1960" width="750" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="data-risk-3-0" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#64748b;fontSize=13;" edge="1" parent="1" source="data-3" target="risk-3-0">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="risk-reason-3-0" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#64748b;fontSize=13;" edge="1" parent="1" source="risk-3-0" target="reason-3-0">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="risk-3-1" value="&lt;b&gt;Потеря&lt;/b&gt;&lt;br&gt;P: Средняя; ущерб: Высокий&lt;br&gt;&lt;b&gt;Риск: Критический&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=10;fontSize=13;fillColor=#fecaca;strokeColor=#475569;fontColor=#102a43;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="2065" width="300" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="reason-3-1" value="Вероятность «средняя» × ущерб «высокий» → критический. Утрата ключей, шаблонов или разрешений может остановить доступ жильцов и восстановление сервиса." style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=10;fontSize=15;fillColor=#f8fafc;strokeColor=#475569;fontColor=#102a43;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="2065" width="750" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="data-risk-3-1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#64748b;fontSize=13;" edge="1" parent="1" source="data-3" target="risk-3-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="risk-reason-3-1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#64748b;fontSize=13;" edge="1" parent="1" source="risk-3-1" target="reason-3-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="risk-3-2" value="&lt;b&gt;Искажение&lt;/b&gt;&lt;br&gt;P: Средняя; ущерб: Высокий&lt;br&gt;&lt;b&gt;Риск: Критический&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=10;fontSize=13;fillColor=#fecaca;strokeColor=#475569;fontColor=#102a43;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="2170" width="300" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="reason-3-2" value="Вероятность «средняя» × ущерб «высокий» → критический. Подменённое разрешение или команда откроет дверь/шлагбаум постороннему человеку." style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=10;fontSize=15;fillColor=#f8fafc;strokeColor=#475569;fontColor=#102a43;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="2170" width="750" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="data-risk-3-2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#64748b;fontSize=13;" edge="1" parent="1" source="data-3" target="risk-3-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="risk-reason-3-2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#64748b;fontSize=13;" edge="1" parent="1" source="risk-3-2" target="reason-3-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="risk-3-3" value="&lt;b&gt;Некачественные данные&lt;/b&gt;&lt;br&gt;P: Средняя; ущерб: Высокий&lt;br&gt;&lt;b&gt;Риск: Критический&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=10;fontSize=13;fillColor=#fecaca;strokeColor=#475569;fontColor=#102a43;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="2275" width="300" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="reason-3-3" value="Вероятность «средняя» × ущерб «высокий» → критический. Ошибочная привязка лица или номера к квартире выдаст или заблокирует физический доступ." style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=10;fontSize=15;fillColor=#f8fafc;strokeColor=#475569;fontColor=#102a43;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="2275" width="750" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="data-risk-3-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#64748b;fontSize=13;" edge="1" parent="1" source="data-3" target="risk-3-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="risk-reason-3-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#64748b;fontSize=13;" edge="1" parent="1" source="risk-3-3" target="reason-3-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="risk-3-4" value="&lt;b&gt;Обесценивание&lt;/b&gt;&lt;br&gt;P: Средняя; ущерб: Средний&lt;br&gt;&lt;b&gt;Риск: Значительный&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=10;fontSize=13;fillColor=#fef3c7;strokeColor=#475569;fontColor=#102a43;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="2380" width="300" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="reason-3-4" value="Вероятность «средняя» × ущерб «средний» → значительный. Устаревшие биометрические шаблоны и списки доступа перестают точно отражать действующие права и вызывают ложные отказы и ручные проверки." style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=10;fontSize=15;fillColor=#f8fafc;strokeColor=#475569;fontColor=#102a43;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="2380" width="750" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="data-risk-3-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#64748b;fontSize=13;" edge="1" parent="1" source="data-3" target="risk-3-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="risk-reason-3-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#64748b;fontSize=13;" edge="1" parent="1" source="risk-3-4" target="reason-3-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

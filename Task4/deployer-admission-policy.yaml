@@ -1,0 +1,129 @@
+# Kubernetes v1.30+ ValidatingAdmissionPolicy. Protects namespaced Secrets and
+# ServiceAccounts from pd:*:devops users who can create workloads.
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: pd-deployer-workload-guard
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+      - apiGroups: [""]
+        apiVersions: [v1]
+        operations: [CREATE, UPDATE]
+        resources: [pods]
+      - apiGroups: [apps]
+        apiVersions: [v1]
+        operations: [CREATE, UPDATE]
+        resources: [deployments, statefulsets, daemonsets]
+      - apiGroups: [batch]
+        apiVersions: [v1]
+        operations: [CREATE, UPDATE]
+        resources: [jobs, cronjobs]
+  matchConditions:
+    - name: domain-devops-only
+      expression: >-
+        request.userInfo.groups.exists(g, g in
+          ['pd:sales:devops', 'pd:housing:devops',
+           'pd:finance:devops', 'pd:data:devops'])
+  variables:
+    - name: podSpec
+      expression: >-
+        request.resource.resource == 'pods' ? object.spec :
+        request.resource.resource == 'cronjobs' ? object.spec.jobTemplate.spec.template.spec :
+        object.spec.template.spec
+    - name: containers
+      expression: >-
+        variables.podSpec.containers +
+        (has(variables.podSpec.initContainers) ? variables.podSpec.initContainers : []) +
+        (has(variables.podSpec.ephemeralContainers) ? variables.podSpec.ephemeralContainers : [])
+  validations:
+    - expression: >-
+        has(variables.podSpec.serviceAccountName) &&
+        variables.podSpec.serviceAccountName == 'pd-unprivileged' &&
+        has(variables.podSpec.automountServiceAccountToken) &&
+        variables.podSpec.automountServiceAccountToken == false
+      message: 'domain deployers must use pd-unprivileged with automountServiceAccountToken=false'
+    - expression: >-
+        !has(variables.podSpec.imagePullSecrets) ||
+        size(variables.podSpec.imagePullSecrets) == 0
+      message: 'domain deployers cannot reference imagePullSecrets'
+    - expression: >-
+        !has(variables.podSpec.volumes) ||
+        variables.podSpec.volumes.all(v,
+          !has(v.secret) && !has(v.hostPath) && !has(v.csi) &&
+          !has(v.persistentVolumeClaim) && !has(v.ephemeral) &&
+          (!has(v.projected) || v.projected.sources.all(s,
+            !has(s.secret) && !has(s.serviceAccountToken))))
+      message: 'domain deployers cannot mount Secret, service account token, PVC, ephemeral, CSI or hostPath volumes'
+    - expression: >-
+        variables.containers.all(c,
+          (!has(c.envFrom) || c.envFrom.all(e, !has(e.secretRef))) &&
+          (!has(c.env) || c.env.all(e,
+            !has(e.valueFrom) || !has(e.valueFrom.secretKeyRef))) &&
+          (!has(c.securityContext) || !has(c.securityContext.privileged) ||
+            c.securityContext.privileged == false) &&
+          (!has(c.ports) || c.ports.all(p, !has(p.hostPort))))
+      message: 'domain deployers cannot use Secret environment references, privileged containers or hostPort'
+    - expression: >-
+        has(variables.podSpec.securityContext) &&
+        has(variables.podSpec.securityContext.runAsNonRoot) &&
+        variables.podSpec.securityContext.runAsNonRoot == true &&
+        has(variables.podSpec.securityContext.seccompProfile) &&
+        variables.podSpec.securityContext.seccompProfile.type in ['RuntimeDefault', 'Localhost'] &&
+        variables.containers.all(c,
+          has(c.securityContext) &&
+          has(c.securityContext.allowPrivilegeEscalation) &&
+          c.securityContext.allowPrivilegeEscalation == false &&
+          has(c.securityContext.capabilities) &&
+          has(c.securityContext.capabilities.drop) &&
+          'ALL' in c.securityContext.capabilities.drop &&
+          (!has(c.securityContext.capabilities.add) ||
+            c.securityContext.capabilities.add.all(a, a == 'NET_BIND_SERVICE')))
+      message: 'domain deployers must use non-root RuntimeDefault/Localhost seccomp, disable privilege escalation and drop ALL capabilities'
+    - expression: >-
+        (!has(variables.podSpec.hostNetwork) || variables.podSpec.hostNetwork == false) &&
+        (!has(variables.podSpec.hostPID) || variables.podSpec.hostPID == false) &&
+        (!has(variables.podSpec.hostIPC) || variables.podSpec.hostIPC == false)
+      message: 'domain deployers cannot use host networking or host namespaces'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: pd-deployer-workload-guard
+spec:
+  policyName: pd-deployer-workload-guard
+  validationActions: [Deny]
+---
+# Kept in a separate typed policy so CEL type checking only sees StatefulSet.
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: pd-deployer-stateful-storage-guard
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+      - apiGroups: [apps]
+        apiVersions: [v1]
+        operations: [CREATE, UPDATE]
+        resources: [statefulsets]
+  matchConditions:
+    - name: domain-devops-only
+      expression: >-
+        request.userInfo.groups.exists(g, g in
+          ['pd:sales:devops', 'pd:housing:devops',
+           'pd:finance:devops', 'pd:data:devops'])
+  validations:
+    - expression: >-
+        !has(object.spec.volumeClaimTemplates) ||
+        size(object.spec.volumeClaimTemplates) == 0
+      message: 'domain deployers cannot create StatefulSet volumeClaimTemplates'
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: pd-deployer-stateful-storage-guard
+spec:
+  policyName: pd-deployer-stateful-storage-guard
+  validationActions: [Deny]
